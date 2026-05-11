@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VibeCheck</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a href="landing.html" class="back-btn" id="backBtn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+    Back
+  </a>
+
+  <div class="layout">
+
+    <!-- LEFT: By Artist -->
+    <div class="panel panel--artist">
+      <div class="panel__topbar panel__topbar--pink"></div>
+      <h2 class="panel__title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon--pink"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        By Artist
+      </h2>
+      <form class="search-form" id="artistForm">
+        <input type="text" id="artistInput" class="search-input" placeholder="Artist name..." autocomplete="off" />
+        <button type="submit" class="search-btn search-btn--pink" id="artistBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+      </form>
+      <div class="panel__result" id="artistResult">
+        <p class="panel__empty">Type an artist to discover a random track from their catalog.</p>
+      </div>
+    </div>
+
+    <!-- CENTER: Feeling Lucky -->
+    <div class="panel panel--lucky">
+      <div class="panel__topbar panel__topbar--purple"></div>
+      <div class="panel__glow"></div>
+      <div class="lucky-hero" id="luckyHero">
+        <h1 class="lucky-title">VibeCheck</h1>
+        <p class="lucky-sub">Discover your next obsession</p>
+        <button class="lucky-btn" id="luckyBtn">
+          <span class="lucky-btn__border"></span>
+          <span class="lucky-btn__bg"></span>
+          <span class="lucky-btn__label">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>
+            FEELING LUCKY
+          </span>
+        </button>
+      </div>
+      <div class="panel__result panel__result--lucky hidden" id="luckyResult">
+        <div class="lucky-result-header">
+          <span class="panel__title" style="margin-bottom:0">Feeling Lucky</span>
+          <button class="reload-btn" id="luckyReload" title="Shuffle again">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: By Genre -->
+    <div class="panel panel--genre">
+      <div class="panel__topbar panel__topbar--cyan"></div>
+      <h2 class="panel__title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon--cyan"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        By Genre
+      </h2>
+      <div class="genre-chips">
+        <button class="chip" data-genre="Pop">Pop</button>
+        <button class="chip" data-genre="Hip-Hop">Hip-Hop</button>
+        <button class="chip" data-genre="Rock">Rock</button>
+        <button class="chip" data-genre="Electronic">Electronic</button>
+        <button class="chip" data-genre="Jazz">Jazz</button>
+        <button class="chip" data-genre="Indie">Indie</button>
+        <button class="chip" data-genre="R&B">R&B</button>
+        <button class="chip" data-genre="Latin">Latin</button>
+        <button class="chip" data-genre="K-Pop">K-Pop</button>
+        <button class="chip" data-genre="Country">Country</button>
+        <button class="chip" data-genre="Metal">Metal</button>
+        <button class="chip" data-genre="Classical">Classical</button>
+      </div>
+      <div class="panel__result" id="genreResult">
+        <p class="panel__empty">Select a genre to uncover a random track.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Fade out on back button click
+    document.getElementById("backBtn").addEventListener("click", function(e) {
+      e.preventDefault();
+      const href = this.getAttribute("href");
+      document.body.style.opacity = "0";
+      setTimeout(() => { window.location.href = href; }, 280);
+    });
+  </script>
+</body>
+</html>
