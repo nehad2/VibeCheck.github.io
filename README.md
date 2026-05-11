@@ -13,4 +13,4 @@
 * **iTunes Search API**
 
 ### 🔗 Live Demo
-[Click here to see VibeCheck in action!]([https://nehad2.github.io/VibeCheck/] https://nehad2.github.io/VibeCheck.github.io/)
+[Click here to see VibeCheck in action!]( https://nehad2.github.io/VibeCheck.github.io/)
